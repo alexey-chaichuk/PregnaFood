@@ -13,6 +13,10 @@ import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import ru.chaichuk.pregnafood.utils.GIDbGrabber
 
 class MainActivity : AppCompatActivity() {
 
@@ -38,6 +42,10 @@ class MainActivity : AppCompatActivity() {
                 R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow), drawerLayout)
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+        lifecycleScope.launch(Dispatchers.IO) {
+            GIDbGrabber().grab()
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

@@ -3,6 +3,7 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-parcelize'
     id 'kotlin-kapt'
+    id 'com.google.gms.google-services'
 }
 
 android {
@@ -11,7 +12,7 @@ android {
 
     defaultConfig {
         applicationId "ru.chaichuk.pregnafood"
-        minSdkVersion 22
+        minSdkVersion 24
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
@@ -36,6 +37,8 @@ android {
 
 dependencies {
 
+    implementation 'com.google.firebase:firebase-database-ktx:19.7.0'
+    implementation 'com.google.firebase:firebase-database:19.7.0'
     def lifecycle_version = "2.2.0"
     def room_version = "2.2.6"
 
@@ -64,5 +67,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
     implementation 'androidx.navigation:navigation-fragment-ktx:2.3.4'
     implementation 'androidx.navigation:navigation-ui-ktx:2.3.4'
+
+    implementation 'org.jsoup:jsoup:1.13.1'
 
 }
